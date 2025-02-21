@@ -1,0 +1,45 @@
+extends Control
+@onready var h_box_container: HBoxContainer = $HBoxContainer
+@onready var 回答内容: RichTextLabel = $HBoxContainer/VBoxContainer/回答内容
+var 宽度最大值 := 864
+var 控件ID
+func 设置回答内容(消息ID: int) -> void:
+	控件ID = 消息ID
+	if Global.消息库.has(消息ID):
+		回答内容.text = Global.消息库[消息ID]["内容"]
+		_update_layout()  # 更新布局
+
+func _ready():
+	if 回答内容:
+		回答内容.size_flags_horizontal = Control.SIZE_EXPAND_FILL # 允许水平扩展
+		_update_layout() # 初始调用布局
+		# 回答内容.text_changed.connect(_update_layout) # 这里没有text_change
+	#else:
+	#	print("错误：回答内容未找到")
+
+func _update_layout():
+	if 回答内容:
+		var content_width = 回答内容.get_content_width()
+
+		if content_width >= 宽度最大值:
+			回答内容.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			回答内容.custom_minimum_size.x = 宽度最大值  # 设置 RichTextLabel 的最小宽度
+			# self.size.x = 宽度最大值 # 不需要强制设置父控件宽度，让布局自动调整
+		else:
+			回答内容.autowrap_mode = TextServer.AUTOWRAP_OFF
+			回答内容.custom_minimum_size.x = 0  # 取消最小宽度限制
+
+
+func _on_h_box_container_resized() -> void:
+	if h_box_container:
+		custom_minimum_size.y = h_box_container.size.y
+
+
+func _on_texture_rect_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and MOUSE_BUTTON_LEFT:  # 确保是键盘按下事件
+		DisplayServer.clipboard_set(回答内容.text)
+		print("复制成功")
+
+
+func _on_texture_rect_2_gui_input(event: InputEvent) -> void:
+	pass # Replace with function body.

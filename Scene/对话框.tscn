@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://fdh14he3yg82"]
+
+[ext_resource type="Script" uid="uid://ca3qfk1woyata" path="res://Script/对话框.gd" id="1_8yj6b"]
+[ext_resource type="Texture2D" uid="uid://2meun7rj5oc4" path="res://Resources/Copy.svg" id="1_n2mfx"]
+[ext_resource type="Texture2D" uid="uid://dcu866trv0ast" path="res://Resources/Component 2 (1).svg" id="2_8yj6b"]
+[ext_resource type="FontFile" uid="uid://csyg6jdmjygay" path="res://Font/MiSans-Regular.ttf" id="3_n2mfx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2mfx"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.254902, 0.262745, 0.345098, 1)
+corner_radius_top_left = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 16
+anti_aliasing_size = 0.01
+
+[node name="对话框" type="Control" groups=["用户提问"]]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -990.0
+offset_bottom = -673.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8yj6b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -110.0
+offset_bottom = 46.0
+grow_horizontal = 0
+theme_override_constants/separation = 4
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+modulate = Color(1, 1, 1, 0.498039)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_n2mfx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+modulate = Color(1, 1, 1, 0.498039)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_8yj6b")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="输入内容" type="RichTextLabel" parent="HBoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.92549, 0.92549, 0.92549, 1)
+theme_override_fonts/normal_font = ExtResource("3_n2mfx")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_n2mfx")
+fit_content = true
+autowrap_mode = 0
+
+[connection signal="resized" from="HBoxContainer" to="." method="_on_h_box_container_resized"]
+[connection signal="gui_input" from="HBoxContainer/TextureRect" to="." method="_on_texture_rect_gui_input"]
+[connection signal="gui_input" from="HBoxContainer/TextureRect2" to="." method="_on_texture_rect_2_gui_input"]

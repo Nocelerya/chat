@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=3 uid="uid://d2i3fi6v0p1yc"]
+
+[ext_resource type="FontFile" uid="uid://csyg6jdmjygay" path="res://Font/MiSans-Regular.ttf" id="1_6jp0q"]
+[ext_resource type="Texture2D" uid="uid://cepe7b3fo41hf" path="res://Resources/UI/圆底.png" id="2_7gw6m"]
+[ext_resource type="Texture2D" uid="uid://d3epergdkeebv" path="res://Resources/UI/图片.png" id="3_w4yy2"]
+[ext_resource type="Texture2D" uid="uid://gss8yhtuulhn" path="res://Resources/UI/功能.png" id="4_hy0w7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gw6m"]
+content_margin_left = 10.0
+bg_color = Color(0.184314, 0.192157, 0.2, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 16
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4yy2"]
+content_margin_left = 10.0
+bg_color = Color(0.184314, 0.192157, 0.2, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 16
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hy0w7"]
+content_margin_left = 10.0
+bg_color = Color(0.184314, 0.192157, 0.2, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 16
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c70lj"]
+content_margin_left = 8.0
+draw_center = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_guefn"]
+font = ExtResource("1_6jp0q")
+font_size = 14
+font_color = Color(0.92549, 0.92549, 0.92549, 1)
+
+[node name="功能" type="Control"]
+custom_minimum_size = Vector2(154, 30)
+layout_mode = 3
+anchor_right = 0.14
+anchor_bottom = 0.0416667
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="记录" type="Button" parent="."]
+custom_minimum_size = Vector2(154, 30)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -26.0
+offset_bottom = -5.0
+theme_override_colors/font_color = Color(0.92549, 0.92549, 0.92549, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("1_6jp0q")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_7gw6m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w4yy2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hy0w7")
+alignment = 0
+text_overrun_behavior = 4
+clip_text = true
+metadata/_edit_use_anchors_ = true
+
+[node name="文字" type="Label" parent="记录"]
+layout_mode = 0
+anchor_left = 0.194805
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_colors/font_color = Color(0.92549, 0.92549, 0.92549, 1)
+theme_override_fonts/font = ExtResource("1_6jp0q")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_c70lj")
+text = "这是一个新功能"
+label_settings = SubResource("LabelSettings_guefn")
+vertical_alignment = 1
+paragraph_separator = "/n"
+clip_text = true
+text_overrun_behavior = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="圆底" type="TextureRect" parent="记录"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.038961
+anchor_top = 0.1
+anchor_right = 0.194805
+anchor_bottom = 0.9
+texture = ExtResource("2_7gw6m")
+expand_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="ICON_图片" type="TextureRect" parent="记录"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0779221
+anchor_top = 0.3
+anchor_right = 0.156494
+anchor_bottom = 0.7
+texture = ExtResource("3_w4yy2")
+expand_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="ICON_功能" type="TextureRect" parent="记录"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0779221
+anchor_top = 0.3
+anchor_right = 0.156494
+anchor_bottom = 0.7
+texture = ExtResource("4_hy0w7")
+expand_mode = 3
+metadata/_edit_use_anchors_ = true

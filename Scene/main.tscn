@@ -1,0 +1,909 @@
+[gd_scene load_steps=43 format=3 uid="uid://64yv6ocrkb6r"]
+
+[ext_resource type="Script" uid="uid://o2v1ikk17x6m" path="res://Script/main.gd" id="1_p2wc2"]
+[ext_resource type="Texture2D" uid="uid://cgbahgial77c" path="res://Resources/对话 (1).svg" id="1_r34rm"]
+[ext_resource type="Script" uid="uid://bwtmvar6vg6dt" path="res://Script/ui.gd" id="2_aam5o"]
+[ext_resource type="FontFile" uid="uid://csyg6jdmjygay" path="res://Font/MiSans-Regular.ttf" id="2_sblpm"]
+[ext_resource type="Texture2D" uid="uid://p3nif6y0i465" path="res://Resources/UI/搜索.png" id="4_jbas8"]
+[ext_resource type="PackedScene" uid="uid://bgq3v35p5f46p" path="res://Scene/聊天记录.tscn" id="5_6njx3"]
+[ext_resource type="Texture2D" uid="uid://dixrn4quuv8kp" path="res://Resources/UI/收缩.png" id="5_p4j74"]
+[ext_resource type="Theme" uid="uid://dvm6rry3lw82k" path="res://主题/滚动条.tres" id="6_hiice"]
+[ext_resource type="PackedScene" uid="uid://d2i3fi6v0p1yc" path="res://Scene/功能.tscn" id="7_hiice"]
+[ext_resource type="Texture2D" uid="uid://bo8iudgd3ny8w" path="res://Resources/UI/设置.png" id="7_jbas8"]
+[ext_resource type="Texture2D" uid="uid://p5ilp2xp2ysp" path="res://Resources/下拉.svg" id="7_ow1sv"]
+[ext_resource type="Texture2D" uid="uid://b18uwdst4we1l" path="res://Resources/分析图片.svg" id="8_0sxm5"]
+[ext_resource type="Texture2D" uid="uid://pjgnhjc4mycg" path="res://Resources/上传文件.svg" id="8_75buv"]
+[ext_resource type="PackedScene" uid="uid://fdh14he3yg82" path="res://Scene/对话框.tscn" id="8_hspdg"]
+[ext_resource type="Texture2D" uid="uid://dfp4fqk3xajr" path="res://Resources/UI/清除.png" id="8_jbas8"]
+[ext_resource type="Texture2D" uid="uid://bhwfa6a1ou7bu" path="res://Resources/帮我写.svg" id="8_mxd2g"]
+[ext_resource type="Texture2D" uid="uid://dce3wf05pida3" path="res://Resources/联网搜索.svg" id="9_c2iwn"]
+[ext_resource type="PackedScene" uid="uid://dvxrv1llsx46v" path="res://Scene/ai回答.tscn" id="9_j63at"]
+[ext_resource type="Texture2D" uid="uid://bm3klopc3bbhl" path="res://Resources/UI/编辑.png" id="9_p4j74"]
+[ext_resource type="FontFile" uid="uid://by4y8cjnqjxdt" path="res://Font/MiSans-Medium.ttf" id="12_jbas8"]
+[ext_resource type="Script" uid="uid://g2g448hd3cr6" path="res://Script/模型版本.gd" id="13_nyb1q"]
+[ext_resource type="Script" uid="uid://c6h4ny5psoorg" path="res://Script/滚动容器.gd" id="13_pqe63"]
+[ext_resource type="Texture2D" uid="uid://3wno8acavmnr" path="res://Resources/暂停.svg" id="17_0y2cb"]
+[ext_resource type="Texture2D" uid="uid://dkjrlib3x6lc1" path="res://Resources/UI/麦克风.png" id="17_jbas8"]
+[ext_resource type="Script" uid="uid://dgol0o8gvd7vy" path="res://Script/数据.gd" id="18_2ix4a"]
+[ext_resource type="Texture2D" uid="uid://dpna7pgfq4mwi" path="res://Resources/UI/发送.png" id="18_jbas8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ow1sv"]
+bg_color = Color(0.160784, 0.164706, 0.176471, 1)
+corner_detail = 20
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75buv"]
+bg_color = Color(0.129412, 0.137255, 0.152941, 1)
+corner_detail = 20
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3amdw"]
+bg_color = Color(0.184314, 0.192157, 0.2, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlixt"]
+bg_color = Color(0.301961, 0.419608, 0.996078, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pqe63"]
+bg_color = Color(0.160784, 0.164706, 0.176471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xw8bv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nyb1q"]
+bg_color = Color(0.160784, 0.164706, 0.176471, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_aam5o"]
+color = Color(0.74902, 0.74902, 0.752941, 1)
+
+[sub_resource type="Theme" id="Theme_aam5o"]
+default_font = ExtResource("2_sblpm")
+default_font_size = 14
+PopupMenu/icons/radio_checked = null
+PopupMenu/icons/radio_checked_disabled = null
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_xw8bv")
+PopupMenu/styles/labeled_separator_left = SubResource("StyleBoxFlat_xw8bv")
+PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxFlat_xw8bv")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_nyb1q")
+PopupMenu/styles/separator = SubResource("StyleBoxLine_aam5o")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aam5o"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ke0e2"]
+content_margin_left = 1.0
+content_margin_top = 1.0
+content_margin_right = 1.0
+content_margin_bottom = 1.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.215686, 0.215686, 0.215686, 1)
+corner_radius_top_left = 65
+corner_radius_top_right = 65
+corner_radius_bottom_right = 65
+corner_radius_bottom_left = 65
+corner_detail = 16
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j63at"]
+bg_color = Color(0.25098, 0.25098, 0.270588, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sor6r"]
+
+[sub_resource type="Theme" id="Theme_sor6r"]
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_sor6r")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2iwn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6njx3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p2wc2")
+metadata/_edit_horizontal_guides_ = [696.0, 24.0, 52.0]
+
+[node name="背景" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_ow1sv")
+metadata/_edit_use_anchors_ = true
+
+[node name="UI" type="HBoxContainer" parent="背景"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("2_aam5o")
+
+[node name="左侧" type="PanelContainer" parent="背景/UI"]
+custom_minimum_size = Vector2(172, 640)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_75buv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="背景/UI/左侧"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 720)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="顶部" type="MarginContainer" parent="背景/UI/左侧/VBoxContainer"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="背景/UI/左侧/VBoxContainer/顶部"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 8
+
+[node name="对话" type="Button" parent="背景/UI/左侧/VBoxContainer/顶部/HBoxContainer"]
+custom_minimum_size = Vector2(76, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3amdw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rlixt")
+
+[node name="对话(1)" type="Sprite2D" parent="背景/UI/左侧/VBoxContainer/顶部/HBoxContainer/对话"]
+position = Vector2(17, 16)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_r34rm")
+
+[node name="Label" type="Label" parent="背景/UI/左侧/VBoxContainer/顶部/HBoxContainer/对话"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.647
+anchor_top = 0.5
+anchor_right = 0.647
+anchor_bottom = 0.5
+offset_left = -20.172
+offset_top = -14.0
+offset_right = 21.828
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_sblpm")
+theme_override_font_sizes/font_size = 14
+text = "新对话"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="背景/UI/左侧/VBoxContainer/顶部/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 8
+
+[node name="搜索" type="TextureButton" parent="背景/UI/左侧/VBoxContainer/顶部/HBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture_normal = ExtResource("4_jbas8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="收缩" type="TextureButton" parent="背景/UI/左侧/VBoxContainer/顶部/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+texture_normal = ExtResource("5_p4j74")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="聊天记录" type="Control" parent="背景/UI/左侧/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 468)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="聊天记录" type="MarginContainer" parent="背景/UI/左侧/VBoxContainer/聊天记录"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 468)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="背景/UI/左侧/VBoxContainer/聊天记录/聊天记录"]
+layout_mode = 2
+theme = ExtResource("6_hiice")
+follow_focus = true
+draw_focus_border = true
+horizontal_scroll_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="背景/UI/左侧/VBoxContainer/聊天记录/聊天记录/ScrollContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 468)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+
+[node name="记录" parent="背景/UI/左侧/VBoxContainer/聊天记录/聊天记录/ScrollContainer/VBoxContainer" instance=ExtResource("5_6njx3")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="工具区" type="Control" parent="背景/UI/左侧/VBoxContainer"]
+custom_minimum_size = Vector2(0, 148)
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="背景/UI/左侧/VBoxContainer/工具区"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -142.0
+offset_right = 86.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 10
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="背景/UI/左侧/VBoxContainer/工具区/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="功能" parent="背景/UI/左侧/VBoxContainer/工具区/MarginContainer/VBoxContainer" instance=ExtResource("7_hiice")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="功能2" parent="背景/UI/左侧/VBoxContainer/工具区/MarginContainer/VBoxContainer" instance=ExtResource("7_hiice")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="功能3" parent="背景/UI/左侧/VBoxContainer/工具区/MarginContainer/VBoxContainer" instance=ExtResource("7_hiice")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="功能4" parent="背景/UI/左侧/VBoxContainer/工具区/MarginContainer/VBoxContainer" instance=ExtResource("7_hiice")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="设置" type="MarginContainer" parent="背景/UI/左侧/VBoxContainer"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="背景/UI/左侧/VBoxContainer/设置"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="背景/UI/左侧/VBoxContainer/设置/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TextureButton" type="TextureButton" parent="背景/UI/左侧/VBoxContainer/设置/HBoxContainer/HBoxContainer"]
+texture_filter = 5
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("7_jbas8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="背景/UI/左侧/VBoxContainer/设置/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.92549, 0.92549, 0.92549, 1)
+theme_override_fonts/font = ExtResource("2_sblpm")
+theme_override_font_sizes/font_size = 12
+text = "设置"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="背景/UI/左侧/VBoxContainer/设置/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TextureButton" type="TextureButton" parent="背景/UI/左侧/VBoxContainer/设置/HBoxContainer/HBoxContainer2"]
+texture_filter = 5
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("8_jbas8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="背景/UI/左侧/VBoxContainer/设置/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.92549, 0.92549, 0.92549, 1)
+theme_override_fonts/font = ExtResource("2_sblpm")
+theme_override_font_sizes/font_size = 12
+text = "清除记录"
+
+[node name="右侧" type="MarginContainer" parent="背景/UI"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 22
+
+[node name="右侧_间距" type="MarginContainer" parent="背景/UI/右侧"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 33
+
+[node name="右侧_列表" type="VBoxContainer" parent="背景/UI/右侧/右侧_间距"]
+custom_minimum_size = Vector2(864, 0)
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="头部" type="Control" parent="背景/UI/右侧/右侧_间距/右侧_列表"]
+z_index = 1
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="底部纯色" type="Panel" parent="背景/UI/右侧/右侧_间距/右侧_列表/头部"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pqe63")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="背景/UI/右侧/右侧_间距/右侧_列表/头部"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.037037
+anchor_top = 0.266667
+anchor_right = 1.03704
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="背景/UI/右侧/右侧_间距/右侧_列表/头部/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="顶部栏标题" type="HBoxContainer" parent="背景/UI/右侧/右侧_间距/右侧_列表/头部/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.0
+offset_top = -16.5
+offset_right = 167.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="标题" type="LineEdit" parent="背景/UI/右侧/右侧_间距/右侧_列表/头部/HBoxContainer/Control/顶部栏标题"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.92549, 0.92549, 0.92549, 1)
+theme_override_fonts/font = ExtResource("2_sblpm")
+theme_override_font_sizes/font_size = 18
+placeholder_text = "New chat"
+alignment = 1
+expand_to_text_length = true
+flat = true
+
+[node name="TextureButton" type="TextureButton" parent="背景/UI/右侧/右侧_间距/右侧_列表/头部/HBoxContainer/Control/顶部栏标题"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+size_flags_horizontal = 2
+texture_normal = ExtResource("9_p4j74")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="模型" type="Control" parent="背景/UI/右侧/右侧_间距/右侧_列表/头部"]
+layout_mode = 1
+anchor_left = 0.998843
+anchor_top = 0.4
+anchor_right = 0.998843
+anchor_bottom = 0.4
+offset_left = -111.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="模型版本" type="OptionButton" parent="背景/UI/右侧/右侧_间距/右侧_列表/头部/模型"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.10811
+anchor_bottom = 1.0
+theme = SubResource("Theme_aam5o")
+theme_override_fonts/font = ExtResource("2_sblpm")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxFlat_aam5o")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_aam5o")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_aam5o")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_aam5o")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_aam5o")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_aam5o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aam5o")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_aam5o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_aam5o")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_aam5o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aam5o")
+alignment = 1
+icon_alignment = 1
+script = ExtResource("13_nyb1q")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="背景/UI/右侧/右侧_间距/右侧_列表/头部/模型"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.918182
+anchor_top = 0.464286
+anchor_right = 1.01273
+anchor_bottom = 0.692857
+offset_right = 93.6
+offset_bottom = 57.6
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("7_ow1sv")
+metadata/_edit_use_anchors_ = true
+
+[node name="聊天区域" type="Control" parent="背景/UI/右侧/右侧_间距/右侧_列表"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="MarginContainer" type="MarginContainer" parent="背景/UI/右侧/右侧_间距/右侧_列表/聊天区域"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="滚动容器" type="ScrollContainer" parent="背景/UI/右侧/右侧_间距/右侧_列表/聊天区域/MarginContainer"]
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+script = ExtResource("13_pqe63")
+
+[node name="聊天列表" type="VBoxContainer" parent="背景/UI/右侧/右侧_间距/右侧_列表/聊天区域/MarginContainer/滚动容器"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+
+[node name="对话框" parent="背景/UI/右侧/右侧_间距/右侧_列表/聊天区域/MarginContainer/滚动容器/聊天列表" instance=ExtResource("8_hspdg")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="AI回答" parent="背景/UI/右侧/右侧_间距/右侧_列表/聊天区域/MarginContainer/滚动容器/聊天列表" instance=ExtResource("9_j63at")]
+visible = false
+layout_mode = 2
+
+[node name="对话框2" parent="背景/UI/右侧/右侧_间距/右侧_列表/聊天区域/MarginContainer/滚动容器/聊天列表" instance=ExtResource("8_hspdg")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="AI回答2" parent="背景/UI/右侧/右侧_间距/右侧_列表/聊天区域/MarginContainer/滚动容器/聊天列表" instance=ExtResource("9_j63at")]
+visible = false
+layout_mode = 2
+
+[node name="对话框3" parent="背景/UI/右侧/右侧_间距/右侧_列表/聊天区域/MarginContainer/滚动容器/聊天列表" instance=ExtResource("8_hspdg")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="AI回答3" parent="背景/UI/右侧/右侧_间距/右侧_列表/聊天区域/MarginContainer/滚动容器/聊天列表" instance=ExtResource("9_j63at")]
+visible = false
+layout_mode = 2
+
+[node name="对话框4" parent="背景/UI/右侧/右侧_间距/右侧_列表/聊天区域/MarginContainer/滚动容器/聊天列表" instance=ExtResource("8_hspdg")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="AI回答4" parent="背景/UI/右侧/右侧_间距/右侧_列表/聊天区域/MarginContainer/滚动容器/聊天列表" instance=ExtResource("9_j63at")]
+visible = false
+layout_mode = 2
+
+[node name="对话框5" parent="背景/UI/右侧/右侧_间距/右侧_列表/聊天区域/MarginContainer/滚动容器/聊天列表" instance=ExtResource("8_hspdg")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="AI回答5" parent="背景/UI/右侧/右侧_间距/右侧_列表/聊天区域/MarginContainer/滚动容器/聊天列表" instance=ExtResource("9_j63at")]
+visible = false
+layout_mode = 2
+
+[node name="底部区域" type="MarginContainer" parent="背景/UI/右侧/右侧_间距/右侧_列表"]
+custom_minimum_size = Vector2(0, 132)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="底部纯色" type="Panel" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pqe63")
+
+[node name="聊天区域列表" type="VBoxContainer" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="引导词" type="Control" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表"]
+layout_mode = 2
+
+[node name="文案" type="Label" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/引导词"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.92549, 0.92549, 0.92549, 1)
+theme_override_fonts/font = ExtResource("12_jbas8")
+theme_override_font_sizes/font_size = 26
+text = "有什么可以帮到你的？"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 10
+
+[node name="功能区域" type="HBoxContainer" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="小工具" type="Control" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/功能区域"]
+custom_minimum_size = Vector2(84, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/功能区域/小工具"]
+custom_minimum_size = Vector2(84, 32)
+layout_mode = 0
+offset_right = 84.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ke0e2")
+
+[node name="MarginContainer" type="MarginContainer" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/功能区域/小工具/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/功能区域/小工具/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 4
+
+[node name="TextureRect" type="TextureRect" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/功能区域/小工具/Panel/MarginContainer/HBoxContainer"]
+texture_filter = 5
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_0sxm5")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/功能区域/小工具/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.560784, 0.592157, 0.623529, 1)
+theme_override_fonts/font = ExtResource("2_sblpm")
+theme_override_font_sizes/font_size = 12
+text = "帮我写"
+
+[node name="小工具2" type="Control" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/功能区域"]
+custom_minimum_size = Vector2(84, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/功能区域/小工具2"]
+custom_minimum_size = Vector2(84, 32)
+layout_mode = 0
+offset_right = 84.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ke0e2")
+
+[node name="MarginContainer" type="MarginContainer" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/功能区域/小工具2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/功能区域/小工具2/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 4
+
+[node name="TextureRect" type="TextureRect" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/功能区域/小工具2/Panel/MarginContainer/HBoxContainer"]
+texture_filter = 5
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_mxd2g")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/功能区域/小工具2/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.560784, 0.592157, 0.623529, 1)
+theme_override_fonts/font = ExtResource("2_sblpm")
+theme_override_font_sizes/font_size = 12
+text = "帮我写"
+
+[node name="输入区域" type="PanelContainer" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j63at")
+
+[node name="MarginContainer" type="MarginContainer" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/输入区域"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="输入区域排列" type="VBoxContainer" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/输入区域/MarginContainer"]
+layout_mode = 2
+
+[node name="文字输入" type="TextEdit" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/输入区域/MarginContainer/输入区域排列"]
+custom_minimum_size = Vector2(824, 30)
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_sor6r")
+theme_override_colors/font_placeholder_color = Color(0.65098, 0.670588, 0.709804, 1)
+theme_override_colors/font_color = Color(0.92549, 0.92549, 0.92549, 1)
+theme_override_fonts/font = ExtResource("2_sblpm")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_c2iwn")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6njx3")
+placeholder_text = "请输入信息"
+context_menu_enabled = false
+wrap_mode = 1
+autowrap_mode = 1
+indent_wrapped_lines = true
+scroll_smooth = true
+use_custom_word_separators = true
+custom_word_separators = "/n"
+draw_control_chars = true
+draw_tabs = true
+draw_spaces = true
+text_direction = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="功能" type="Control" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/输入区域/MarginContainer/输入区域排列"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="输入功能" type="HBoxContainer" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/输入区域/MarginContainer/输入区域排列/功能"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 48.0
+grow_vertical = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 14
+
+[node name="上传文件" type="TextureButton" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/输入区域/MarginContainer/输入区域排列/功能/输入功能"]
+texture_filter = 5
+custom_minimum_size = Vector2(14, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("8_75buv")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="联网搜索" type="TextureButton" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/输入区域/MarginContainer/输入区域排列/功能/输入功能"]
+texture_filter = 5
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("9_c2iwn")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="输出" type="HBoxContainer" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/输入区域/MarginContainer/输入区域排列/功能"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -78.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 14
+
+[node name="语音输入" type="TextureButton" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/输入区域/MarginContainer/输入区域排列/功能/输出"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("17_jbas8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="发送" type="TextureButton" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/输入区域/MarginContainer/输入区域排列/功能/输出"]
+texture_filter = 3
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("18_jbas8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="暂停" type="TextureButton" parent="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/输入区域/MarginContainer/输入区域排列/功能/输出"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("17_0y2cb")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Tips" type="Label" parent="背景/UI/右侧"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.65098, 0.670588, 0.709804, 1)
+theme_override_fonts/font = ExtResource("2_sblpm")
+theme_override_font_sizes/font_size = 12
+text = "由AI生成，内容仅供参考"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="会话ID输入" type="LineEdit" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.177273
+anchor_top = 0.0347222
+anchor_right = 0.24
+anchor_bottom = 0.0777778
+placeholder_text = "会话ID"
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="消息ID输入" type="LineEdit" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.242727
+anchor_top = 0.0347222
+anchor_right = 0.305455
+anchor_bottom = 0.0777778
+placeholder_text = "消息ID"
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="数据" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("18_2ix4a")
+
+[node name="创建对话框" type="HTTPRequest" parent="数据"]
+
+[node name="提问" type="HTTPRequest" parent="数据"]
+
+[node name="时间请求" type="HTTPRequest" parent="数据"]
+
+[node name="标题请求" type="HTTPRequest" parent="数据"]
+
+[node name="定时器" type="Timer" parent="."]
+
+[node name="Button" type="Button" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.310909
+anchor_top = 0.0333333
+anchor_right = 0.347273
+anchor_bottom = 0.0763889
+offset_bottom = -1.14441e-05
+text = "测试"
+metadata/_edit_use_anchors_ = true
+
+[node name="超时计时器" type="Timer" parent="."]
+
+[connection signal="item_selected" from="背景/UI/右侧/右侧_间距/右侧_列表/头部/模型/模型版本" to="背景/UI/右侧/右侧_间距/右侧_列表/头部/模型/模型版本" method="_on_item_selected"]
+[connection signal="resized" from="背景/UI/右侧/右侧_间距/右侧_列表/聊天区域/MarginContainer/滚动容器/聊天列表" to="背景/UI/右侧/右侧_间距/右侧_列表/聊天区域/MarginContainer/滚动容器" method="_on_聊天列表_resized"]
+[connection signal="gui_input" from="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/输入区域/MarginContainer/输入区域排列/文字输入" to="." method="_on_文字输入_gui_input"]
+[connection signal="text_changed" from="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/输入区域/MarginContainer/输入区域排列/文字输入" to="." method="_on_文字输入_text_changed"]
+[connection signal="button_down" from="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/输入区域/MarginContainer/输入区域排列/功能/输出/发送" to="." method="_on_发送_button_down"]
+[connection signal="button_down" from="背景/UI/右侧/右侧_间距/右侧_列表/底部区域/聊天区域列表/输入区域/MarginContainer/输入区域排列/功能/输出/暂停" to="." method="_on_暂停_button_down"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

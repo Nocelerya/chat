@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq5xgagt8jryp"]
+
+[ext_resource type="Texture2D" uid="uid://bhwfa6a1ou7bu" path="res://Resources/帮我写.svg" id="1_fuhgc"]
+[ext_resource type="FontFile" uid="uid://csyg6jdmjygay" path="res://Font/MiSans-Regular.ttf" id="2_mgnbf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ke0e2"]
+content_margin_left = 1.0
+content_margin_top = 1.0
+content_margin_right = 1.0
+content_margin_bottom = 1.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.215686, 0.215686, 0.215686, 1)
+corner_radius_top_left = 65
+corner_radius_top_right = 65
+corner_radius_bottom_right = 65
+corner_radius_bottom_left = 65
+corner_detail = 16
+anti_aliasing_size = 0.01
+
+[node name="小工具" type="Control"]
+custom_minimum_size = Vector2(84, 0)
+layout_direction = 4
+layout_mode = 3
+anchor_right = 0.0763636
+anchor_bottom = 0.05
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(84, 32)
+layout_mode = 0
+offset_right = 84.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ke0e2")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 4
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_fuhgc")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.560784, 0.592157, 0.623529, 1)
+theme_override_fonts/font = ExtResource("2_mgnbf")
+theme_override_font_sizes/font_size = 12
+text = "帮我写"

@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgq3v35p5f46p"]
+
+[ext_resource type="FontFile" uid="uid://csyg6jdmjygay" path="res://Font/MiSans-Regular.ttf" id="1_3aa0j"]
+[ext_resource type="Script" uid="uid://dovetlkhwc6su" path="res://Script/聊天记录.gd" id="1_35oux"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35oux"]
+content_margin_left = 10.0
+bg_color = Color(0.184314, 0.192157, 0.2, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 16
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8jm4"]
+content_margin_left = 10.0
+bg_color = Color(0.184314, 0.192157, 0.2, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 16
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3aa0j"]
+content_margin_left = 10.0
+bg_color = Color(0.184314, 0.192157, 0.2, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 16
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atgnm"]
+content_margin_left = 10.0
+draw_center = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_3aa0j"]
+font = ExtResource("1_3aa0j")
+font_size = 14
+font_color = Color(0.92549, 0.92549, 0.92549, 1)
+
+[node name="记录" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 16
+script = ExtResource("1_35oux")
+
+[node name="一级" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="日期" type="MarginContainer" parent="一级"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="Label" type="Label" parent="一级/日期"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.443137, 0.443137, 0.478431, 1)
+theme_override_fonts/font = ExtResource("1_3aa0j")
+theme_override_font_sizes/font_size = 12
+text = "今日"
+
+[node name="二级" type="VBoxContainer" parent="一级"]
+layout_mode = 2
+
+[node name="记录" type="Button" parent="一级/二级"]
+custom_minimum_size = Vector2(152, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92549, 0.92549, 0.92549, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("1_3aa0j")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_35oux")
+theme_override_styles/hover = SubResource("StyleBoxFlat_a8jm4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3aa0j")
+alignment = 0
+text_overrun_behavior = 4
+clip_text = true
+
+[node name="Label" type="Label" parent="一级/二级/记录"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.92549, 0.92549, 0.92549, 1)
+theme_override_fonts/font = ExtResource("1_3aa0j")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_atgnm")
+text = "这里是聊天记录这里是聊天记录这里是聊天记录                                                                                           "
+label_settings = SubResource("LabelSettings_3aa0j")
+vertical_alignment = 1
+paragraph_separator = "/n"
+clip_text = true
+text_overrun_behavior = 4
+metadata/_edit_use_anchors_ = true

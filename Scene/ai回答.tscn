@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvxrv1llsx46v"]
+
+[ext_resource type="Texture2D" uid="uid://dqilph47gdybh" path="res://Resources/AI (1).svg" id="1_2ahk3"]
+[ext_resource type="Script" uid="uid://iar3m4o14ohc" path="res://Script/ai回答.gd" id="1_ishyb"]
+[ext_resource type="FontFile" uid="uid://csyg6jdmjygay" path="res://Font/MiSans-Regular.ttf" id="2_rhy7s"]
+[ext_resource type="Texture2D" uid="uid://2meun7rj5oc4" path="res://Resources/Copy.svg" id="2_skgk4"]
+[ext_resource type="Texture2D" uid="uid://dasfsv61pkkj4" path="res://Resources/刷新.svg" id="3_r57em"]
+
+[node name="AI回答" type="Control" groups=["AI回答"]]
+custom_minimum_size = Vector2(145, 53)
+layout_mode = 3
+anchor_right = 0.132
+anchor_bottom = 0.083
+offset_right = -0.199997
+offset_bottom = -0.120003
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ishyb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("1_2ahk3")
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="回答内容" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_rhy7s")
+theme_override_font_sizes/normal_font_size = 16
+text = "测试文案"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("2_skgk4")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("3_r57em")
+expand_mode = 3
+
+[connection signal="resized" from="HBoxContainer" to="." method="_on_h_box_container_resized"]
+[connection signal="gui_input" from="HBoxContainer/VBoxContainer/HBoxContainer/TextureRect" to="." method="_on_texture_rect_gui_input"]
+[connection signal="gui_input" from="HBoxContainer/VBoxContainer/HBoxContainer/TextureRect2" to="." method="_on_texture_rect_2_gui_input"]
