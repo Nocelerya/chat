@@ -143,6 +143,7 @@ func _on_提问_request_completed(结果: int, 响应码: int, 响应头: Packed
 	if 结果 == HTTPRequest.RESULT_SUCCESS && 响应码 == 200:
 		var 响应字符串 = 响应体.get_string_from_utf8()
 		
+		# 处理流式响应
 		if api_类型 == "deepseek" or api_类型 == "openai":
 			# 分割响应流
 			var 数据块列表 = 响应字符串.split("\n")
@@ -150,8 +151,6 @@ func _on_提问_request_completed(结果: int, 响应码: int, 响应头: Packed
 				if 数据块.begins_with("data: "):
 					var json字符串 = 数据块.substr(6)  # 移除 "data: " 前缀
 					if json字符串 == "[DONE]":
-						Global.输出状态(false)
-						print("\nAI回答完成\n")
 						continue
 					
 					var 响应JSON = JSON.parse_string(json字符串)
@@ -165,6 +164,8 @@ func _on_提问_request_completed(结果: int, 响应码: int, 响应头: Packed
 			
 			# 完成后重置累积回复
 			_当前累积回复 = ""
+			Global.输出状态(false)
+			print("\nAI回答完成:\n", _当前累积回复, "\n\n当时使用模型:\n", Global.当前模型)
 		
 		elif api_类型 == "gemini":
 			var 响应JSON = JSON.parse_string(响应字符串)

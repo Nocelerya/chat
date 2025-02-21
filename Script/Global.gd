@@ -42,7 +42,7 @@ var api_配置 = {
 		"body": {
 			"model": "deepseek-chat",
 			"messages": [],
-			"stream": true
+			"stream": false
 		}
 	},
 	"gemini": {
@@ -59,8 +59,7 @@ var api_配置 = {
 		"headers": ["Authorization: Bearer ", "Content-Type: application/json"],
 		"body": {
 			"model": 当前模型,
-			"messages": [],
-			"stream": true
+			"messages": []
 		}
 	}
 }
