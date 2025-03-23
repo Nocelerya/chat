@@ -10,9 +10,9 @@ var Chat按钮状态:bool
 signal 标题状态(引导词: String, 会话id: int)
 var AI设定 := "You are a helpful assistant"
 var API_KEY = {
-	"deepseek": "sk-c7e539244ffd490ead63b5c1ba8491ba",
-	"openai":"sk-czpacf79c051d745677a11b0ebdba0a5927e648915f9KwU2",
-	"gemini":"AIzaSyAkbCVUGbdiAzQQkCZf2DzCGLkjKrfUHgg"
+	"deepseek": "这里输入key",
+	"openai":"这里输入key",
+	"gemini":"这里输入key"
 }
 var 模型库 = {
 	"openai":{
